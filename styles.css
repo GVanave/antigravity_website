@@ -398,7 +398,7 @@ ul {
 
 input, select, textarea {
     width: 100%;
-    padding: 1rem 0;
+    padding: 0.25rem 0 0.5rem 0;
     border: none;
     border-bottom: 1px solid var(--ink);
     background: transparent;
