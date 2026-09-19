@@ -124,8 +124,9 @@ ul {
 }
 
 .nav-links a {
-    font-size: 0.875rem;
+    font-size: 1.125rem;
     font-weight: 500;
+    transition: color 0.2s ease;
 }
 
 .mobile-menu-btn {
@@ -217,13 +218,41 @@ ul {
 @media (min-width: 900px) {
     .hero {
         grid-template-columns: 1fr 1fr;
-        align-items: end;
+        align-items: center;
     }
 }
 
 .hero-content p {
     font-size: 1.5rem;
     max-width: 30ch;
+}
+
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-tag {
+    background: rgba(35, 84, 230, 0.1);
+    color: var(--accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.hero-tag:hover {
+    background: var(--accent);
+    color: var(--paper);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(35, 84, 230, 0.2);
 }
 
 .hero-image {
