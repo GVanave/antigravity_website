@@ -1,0 +1,326 @@
+/* Base & Variables */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+:root {
+    --ink: #0A0F12;       /* Deep almost black for text and borders */
+    --paper: #F3F3EF;     /* slightly warm, gritty off-white */
+    --accent: #2354E6;    /* highly saturated electric blue for actions */
+    --surface: #E8E8E3;   /* slightly darker paper for contrasting sections */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--ink);
+    background-color: var(--paper);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    letter-spacing: -0.02em;
+}
+
+p {
+    font-size: 1.125rem;
+    max-width: 65ch;
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Layout Utilities */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.border-top { border-top: 1px solid var(--ink); }
+.border-bottom { border-bottom: 1px solid var(--ink); }
+.border-right { border-right: 1px solid var(--ink); }
+
+/* Buttons & Links */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    padding: 1rem 2rem;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent);
+}
+
+.btn-primary:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+}
+
+.btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 24px;
+    border-bottom: 1px solid var(--ink);
+    background: var(--paper);
+}
+
+.brand {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* Hero */
+.hero {
+    padding: 6rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+@media (min-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr 1fr;
+        align-items: end;
+    }
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    max-width: 30ch;
+}
+
+.hero-image {
+    aspect-ratio: 3/4;
+    background: var(--ink);
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.2);
+    transition: filter 0.5s ease;
+}
+
+.hero-image:hover img {
+    filter: grayscale(0%);
+}
+
+/* Stats */
+.stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--ink);
+}
+
+@media (min-width: 600px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+    .stats { grid-template-columns: repeat(4, 1fr); }
+}
+
+.stat-item {
+    padding: 3rem 24px;
+    border-bottom: 1px solid var(--ink);
+}
+
+@media (min-width: 600px) {
+    .stat-item:nth-child(odd) { border-right: 1px solid var(--ink); }
+}
+
+@media (min-width: 900px) {
+    .stat-item { border-right: 1px solid var(--ink); border-bottom: none; }
+    .stat-item:last-child { border-right: none; }
+}
+
+.stat-item h3 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+.stat-item p {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+/* Section Shared */
+.section {
+    padding: 8rem 0;
+    border-top: 1px solid var(--ink);
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+@media (min-width: 900px) {
+    .section-grid {
+        grid-template-columns: 300px 1fr;
+    }
+}
+
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+/* List Items (Programs & Why Germany) */
+.list-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item {
+    border-top: 1px solid var(--ink);
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .list-item {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.list-item h4 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.list-item p {
+    margin: 0;
+}
+
+.list-group .list-item:last-child {
+    border-bottom: 1px solid var(--ink);
+}
+
+/* Form Section */
+.contact-section {
+    background: var(--surface);
+}
+
+.form-wrapper {
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 1rem 0;
+    border: none;
+    border-bottom: 1px solid var(--ink);
+    background: transparent;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.125rem;
+    color: var(--ink);
+    border-radius: 0;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-bottom-color: var(--accent);
+}
+
+/* Footer */
+.footer {
+    padding: 4rem 24px;
+    border-top: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .brand {
+    color: var(--paper);
+}
